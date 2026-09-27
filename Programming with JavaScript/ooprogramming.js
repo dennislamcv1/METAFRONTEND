@@ -1,43 +1,43 @@
-// Task 1: code a person class
-
-class person{
+// Task 1: Code a Person class
+class Person {
     constructor(name = "Tom", age = 20, energy = 100) {
         this.name = name;
         this.age = age;
-        this.energy = energy;}
-    
-    sleep() {
-        return this.energy += 10
-    };
-    doSomethingFun() {
-        return this.energy -= 10
-    };
+        this.energy = energy;
+    }
 
-}// task 2: code a worker class
-class worker extends person{
-    constructor(name, age, energy, xp = 0, hourlyWage = 10) {
+    sleep() {
+        this.energy += 10;
+    }
+
+    doSomethingFun() {
+        this.energy -= 10;
+    }
+}
+
+// Task 2: Code a Worker class
+class Worker extends Person {
+    constructor(name = "Tom", age = 20, energy = 100, xp = 0, hourlyWage = 10) {
         super(name, age, energy);
         this.xp = xp;
         this.hourlyWage = hourlyWage;
     }
+
     goToWork() {
-        return this.xp += 10;
+        this.xp += 10;
     }
+}
 
-}// Task 3: code an intern objects, run methods
-
+// Task 3: Code an intern object, run methods
 function intern() {
-    var intern = new worker('Bob', 21, 110, 0, 10)
-    intern.goToWork();
-    return intern;
+    const internWorker = new Worker("Bob", 21, 110, 0, 10);
+    internWorker.goToWork();
+    return internWorker;
 }
 
-// Task 4: code a manager
+// Task 4: Code a manager object, methods
 function manager() {
-    var manager = new worker("Alice", 30, 120, 100, 30);
-    manager.doSomethingFun();
-    return manager;
+    const managerWorker = new Worker("Alice", 30, 120, 100, 30);
+    managerWorker.doSomethingFun();
+    return managerWorker;
 }
-
-console.log(intern());
-console.log(manager());
